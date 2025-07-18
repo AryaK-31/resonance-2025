@@ -23,7 +23,7 @@
   padding: 2rem;
   text-align: center;
   color: #fff;
-  box-shadow: 0 0 40px #ff0000, 0 0 80px #ff4d4d;
+  box-shadow: 0 0 5px #ff0000, 0 0 40px #ff4d4d;
   animation: popIn 0.5s ease-out;
   backdrop-filter: blur(20px);
 }
@@ -33,7 +33,7 @@
   font-weight: 900;
   color: #ff4d4d;
   text-transform: uppercase;
-  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000;
+  text-shadow: 0 0 4px #ff4d4d, 0 0 10px #ff0000;
   margin-bottom: 1rem;
 }
 
@@ -41,7 +41,7 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: #0dff00;
-  text-shadow: 0 0 8px #00ffff, 0 0 16px #00cccc;
+  text-shadow: 0 0 4px #00ffff, 0 0 16px #00cccc;
   margin-bottom: 1rem;
 }
 
@@ -121,7 +121,7 @@
     max-width: 95%;
     padding: 1.5rem;
     border-width: 2px;
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff4d4d;
+    box-shadow: 0 0 5px #ff0000, 0 0 20px #ff4d4d;
   }
 
   .modal-title {

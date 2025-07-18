@@ -6,12 +6,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../../context/Firebase"; // ✅ fixed import
 import Data from "../../API/card-data";
 import { useParams, useNavigate } from "react-router-dom";
+import { firebaseApp } from "../../context/Firebase";
+import { getAuth } from "firebase/auth";
 
 const SchoolRegistration = () => {
     const { eventName } = useParams();
     const navigate = useNavigate();
 
-    console.log('event name', eventName);
+    const auth = getAuth(firebaseApp);
+    console.log('auth', auth);
+
+
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
     console.log(eventData);
@@ -34,19 +39,23 @@ const SchoolRegistration = () => {
 
     // ✅ Check if user is logged in
     useEffect(() => {
-        const currentUser = auth.currentUser;
-        if (currentUser) {
-            setUserName(currentUser.displayName || "");
-        } else {
-            console.log("User not logged in, redirecting...");
-            toast.error("Please log in first", {
-                position: "top-center",
-                autoClose: 3000,
-                theme: "colored",
-            });
-            navigate("/"); // Redirect to home or login
-        }
-    }, [navigate]);
+        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+            if (currentUser) {
+                setUserName(currentUser.displayName || "");
+            } else {
+                console.log("User logged out in the middle. Redirecting...");
+                toast.error("Session expired. Please log in again.", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    theme: "colored",
+                });
+                navigate("/"); // Redirect to home or login page
+            }
+        });
+
+        // Cleanup listener on unmount
+        return () => unsubscribe();
+    }, [auth, navigate]);
 
     const validateStep = () => {
         const newErrors = {};
@@ -101,6 +110,15 @@ const SchoolRegistration = () => {
     };
 
     const handleEventSubmit = async (e) => {
+        if (!auth.currentUser) {
+            toast.error("You are not logged in. Please log in first.", {
+                position: "top-center",
+                autoClose: 3000,
+                theme: "colored",
+            });
+            navigate("/"); // or login page
+            return;
+        }
         e.preventDefault();
         const validationErrors = validateStep();
         if (Object.keys(validationErrors).length > 0) {

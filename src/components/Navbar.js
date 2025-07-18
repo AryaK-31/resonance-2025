@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/Navbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { firebaseApp, useFirebase } from "../context/Firebase";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,10 +12,15 @@ const auth = getAuth(firebaseApp);
 
 const Navbar = () => {
   const firebase = useFirebase();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showModal, setShowModal] = useState(false); // 👈 Modal state
+
+  // 👀 Detect if user is on a form page
+  const isOnForm = location.pathname.includes("/register");
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -29,30 +34,32 @@ const Navbar = () => {
 
     // ✅ Scroll listener
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 🛡️ Guard for navigating away during form progress
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    if (isOnForm) {
+      const confirmLeave = window.confirm(
+        "You are in the middle of a form. Leaving this page will lose all progress. Do you still want to continue?"
+      );
+      if (!confirmLeave) return;
+    }
+    navigate(path);
+  };
 
   if (user === null) {
     return (
       <>
-        {showModal && (
-          <Disclaimer onClose={() => setShowModal(false)} />
-        )}
+        {showModal && <Disclaimer onClose={() => setShowModal(false)} />}
         <nav
-          className={`navbar navbar-expand-lg sticky-top ${
-            isScrolled ? "navbar-scrolled" : "navbar-transparent"
-          }`}
+          className={`navbar navbar-expand-lg sticky-top ${isScrolled ? "navbar-scrolled" : "navbar-transparent"
+            }`}
         >
           <div className="container-fluid">
             <Link
@@ -79,14 +86,22 @@ const Navbar = () => {
             >
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <NavLink to="/" className="nav-link">
+                  <a
+                    href="/"
+                    className="nav-link"
+                    onClick={(e) => handleNavClick(e, "/")}
+                  >
                     <span className="navitem">Home</span>
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/events" className="nav-link">
+                  <a
+                    href="/events"
+                    className="nav-link"
+                    onClick={(e) => handleNavClick(e, "/events")}
+                  >
                     <span className="navitem">Events</span>
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -101,9 +116,13 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/calender" className="nav-link">
+                  <a
+                    href="/calender"
+                    className="nav-link"
+                    onClick={(e) => handleNavClick(e, "/calender")}
+                  >
                     <span className="navitem">Calendar</span>
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -145,13 +164,10 @@ const Navbar = () => {
 
   return (
     <>
-      {showModal && (
-        <Disclaimer onClose={() => setShowModal(false)} />
-      )}
+      {showModal && <Disclaimer onClose={() => setShowModal(false)} />}
       <nav
-        className={`navbar navbar-expand-lg sticky-top ${
-          isScrolled ? "navbar-scrolled" : "navbar-transparent"
-        }`}
+        className={`navbar navbar-expand-lg sticky-top ${isScrolled ? "navbar-scrolled" : "navbar-transparent"
+          }`}
       >
         <div className="container-fluid">
           <NavLink to="/" className="navbar-brand title">
@@ -174,14 +190,22 @@ const Navbar = () => {
           >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(e) => handleNavClick(e, "/")}
+                >
                   <span className="navitem">Home</span>
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
-                <NavLink to="/events" className="nav-link">
+                <a
+                  href="/events"
+                  className="nav-link"
+                  onClick={(e) => handleNavClick(e, "/events")}
+                >
                   <span className="navitem">Events</span>
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <a
@@ -189,20 +213,32 @@ const Navbar = () => {
                   className="nav-link"
                   onClick={(e) => {
                     e.preventDefault();
-                    setShowModal(true); // 👈 Open modal on Guide click
+                    setShowModal(true);
                   }}
                 >
                   <span className="navitem">Guide</span>
                 </a>
               </li>
               <li className="nav-item">
-                <NavLink to="/calender" className="nav-link">
+                <a
+                  href="/calender"
+                  className="nav-link"
+                  onClick={(e) => handleNavClick(e, "/calender")}
+                >
                   <span className="navitem">Calendar</span>
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <a
-                  onClick={() => signOut(auth)}
+                  onClick={() => {
+                    if (isOnForm) {
+                      const confirmLogout = window.confirm(
+                        "You are in the middle of a form. Logging out will lose all progress. Continue?"
+                      );
+                      if (!confirmLogout) return;
+                    }
+                    signOut(auth);
+                  }}
                   href="#"
                   className="login-navitem navitem"
                 >
