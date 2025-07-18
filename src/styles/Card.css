@@ -1,0 +1,166 @@
+.events-p {
+  /* margin: 0 150px; */
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  padding: 40px 40px;
+  background: linear-gradient(to right, #050F20, #091d3f, #050F20) padding-box, linear-gradient(to bottom, red, #00000000) border-box;
+  border-radius: 3.125em;
+  border: 2px solid transparent;
+}
+ 
+.events_Info {
+  margin: 4% 10%;
+}
+
+.event-card {
+  background-color: red;
+  /* height: 300px;
+  width: 200px; */
+  margin: 10px;
+}
+
+.card-main-container {
+  margin: 0 5%;
+  /* display: flex; */
+  justify-content: space-around;
+}
+
+
+
+/* Card Style */
+
+
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  height: 500px;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  border: 6px solid #fff;
+  position: relative;
+  margin: 3% 2%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.data {
+
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  position: absolute;
+  left: 0;
+  background: #1f3d4740;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  color: #fff;
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 1.5s;
+  border-radius: 15px;
+
+}
+
+.card:hover .data {
+  top: 0;
+}
+
+.card:hover {
+  border-radius: 25px;
+  border: 8px solid #2b72a1;
+}
+
+.card-title {
+
+  text-transform: uppercase;
+  font-family: "Play";
+  /* font-size: 50px; */
+  font-weight: 500;
+
+}
+
+.card-subtitle {
+
+  font-family: "Poppins";
+  text-transform: capitalize;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 300;
+
+}
+
+.card-info {
+
+  font-family: "Poppins";
+  font-size: 16px;
+  line-height: 25px;
+  margin: 30px 0;
+  font-weight: 400;
+
+}
+
+.btn {
+
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+
+button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+.raise {
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}

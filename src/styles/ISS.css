@@ -1,0 +1,10 @@
+canvas {
+    overflow: visible;
+    overflow-clip-margin: initial;
+}
+
+.threeD {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+}

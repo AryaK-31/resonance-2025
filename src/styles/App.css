@@ -1,0 +1,25 @@
+body {
+    background: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(118, 0, 120);
+}
+
+.bg-gradients {
+    position: absolute;
+    height: fit-content;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+}

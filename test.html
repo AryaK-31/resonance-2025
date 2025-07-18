@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My First Web Page</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #007acc;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background: #005b99;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      height: 100vh;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005b99;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My First Website</h1>
+    <p>A demo page using HTML, CSS, and JavaScript</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About This Page</h2>
+      <p>This page demonstrates how HTML structures content, CSS styles it, and JavaScript makes it interactive.</p>
+      <img src="https://source.unsplash.com/800x400/?coding,web" alt="Web development">
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 My First Website
+  </footer>
+
+  <script>
+    // Basic JavaScript interactivity
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      const name = document.getElementById("name").value;
+      alert("Hello " + name + "! Thanks for contacting us.");
+      document.getElementById("contactForm").reset(); // Clear the form
+    });
+  </script>
+</body>
+</html>

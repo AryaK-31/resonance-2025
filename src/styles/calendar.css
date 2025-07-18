@@ -1,0 +1,505 @@
+.calendar-heading {
+    font-family: "Play";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 116px;
+    margin-bottom: 5%;
+    margin-top: 40px;
+    background: -webkit-linear-gradient(-86deg,
+            #39e00a 5%,
+            #b8f60c 53%,
+            #446e02 91%);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+    color: #111111;
+    z-index: 10;
+}
+
+.day {
+    font-family: "Play";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.5vw;
+    color: #ffffff;
+}
+
+.timeline-heading {
+    color: red;
+    text-align: center;
+    font-family: "Play";
+    font-weight: 200;
+}
+
+.day1 {
+    z-index: 10;
+}
+
+.timeline-main {
+    margin: 20px 0px;
+    width: 85vw;
+    border-radius: 15px;
+    text-align: center;
+    align-self: center;
+}
+
+.gantt-chart {
+    display: grid;
+    grid-template-columns: repeat(22, minmax(0, 1fr));
+    position: center;
+    height: auto;
+    border-radius: 15px;
+    background: #ffffff;
+    background: repeating-linear-gradient(to right,
+            #2a0055,
+            #1c002e 1px,
+            #1c002e 1px,
+            #2a0055 4.54%);
+}
+
+.day2 {
+    margin: 50px 0;
+    z-index: 10;
+}
+
+.Hour {
+    display: flex;
+    color: #ffffff;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Play";
+    font-size: 15px;
+    font-weight: 700;
+    background: #0047ab;
+    border: #ff2d00 1px solid;
+    border-bottom: none;
+}
+
+.H1 {
+    border-top-left-radius: 15px;
+    grid-column: 1 / span 2;
+}
+
+.H2 {
+    grid-column: 3 / span 2;
+}
+
+.H3 {
+    grid-column: 5 / span 2;
+}
+
+.H4 {
+    grid-column: 7 / span 2;
+}
+
+.H5 {
+    grid-column: 9 / span 2;
+}
+
+.H6 {
+    grid-column: 11 / span 2;
+}
+
+.H7 {
+    grid-column: 13 / span 2;
+}
+
+.H8 {
+    grid-column: 15 / span 2;
+}
+
+.H9 {
+    grid-column: 17 / span 2;
+}
+
+.H10 {
+    grid-column: 19 / span 2;
+}
+
+.H11 {
+    border-top-right-radius: 15px;
+    grid-column: 21 / span 2;
+}
+
+.hour-para {
+    margin: 5px;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.Event {
+    color: #fff;
+    background: #080808;
+    border-radius: 10px;
+    margin: 3px 3px;
+    border: #ffffff 1px solid;
+    /*#d900ff*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins";
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+/* Alpha analyst */
+.Event-1-d1 {
+    grid-row: 8;
+    grid-column: 3 / span 12;
+}
+
+/* codigo r1 */
+
+/* Codigo r1 */
+.Event-2-d1 {
+    grid-row: 4;
+    grid-column: 3 / span 3;
+}
+
+/* Inaguration */
+.Event-3-d1 {
+    grid-row: 2;
+    grid-column: 5 / span 2;
+}
+
+/* Babycon */
+.Event-4-d1 {
+    grid-row: 2;
+    grid-column: 7 / span 10;
+}
+
+/* hackathon r1 */
+
+/* Hackathon r1 */
+.Event-5-d1 {
+    grid-row: 4;
+    grid-column: 7 / span 7;
+}
+
+/* Codigo r2 */
+.Event-6-d1 {
+    grid-row: 4;
+    grid-column: 15 / span 4;
+}
+
+/* Startup Mania */
+.Event-7-d1 {
+    grid-row: 5;
+    grid-column: 4 / span 6;
+}
+
+/* ipl auction */
+
+/* IPL Auction */
+.Event-8-d1 {
+    grid-row: 3;
+    grid-column: 13 / span 8;
+}
+
+/* Movie Trivia */
+.Event-9-d1 {
+    grid-row: 6;
+    grid-column: 9 / span 10;
+}
+
+/* Perplexo */
+.Event-10-d1 {
+    grid-row: 7;
+    grid-column: 7 / span 2;
+}
+
+/* CAT R1*/
+.Event-11-d1 {
+    grid-row: 6;
+    grid-column: 5 / span 4;
+}
+
+/* CAT R2 */
+.Event-12-d1 {
+    grid-row: 7;
+    grid-column: 13 / span 6;
+}
+
+/* final sprint */
+
+
+.Event-1-d1-active,
+.Event-1-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(116, 255, 186, 0.756),
+        0 0 5px rgba(116, 255, 186, 0.756), 0 0 10px rgba(116, 255, 186, 0.756),
+        0 0 20px rgba(116, 255, 186, 0.756), 0 0 40px rgba(116, 255, 186, 0.756);
+}
+
+.Event-2-d1-active,
+.Event-2-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(0, 221, 255, 0.832),
+        0 0 5px rgba(0, 221, 255, 0.832), 0 0 10px rgba(0, 221, 255, 0.832),
+        0 0 20px rgba(0, 221, 255, 0.832), 0 0 40px rgba(0, 221, 255, 0.832);
+}
+
+.Event-3-d1-active,
+.Event-3-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgb(92, 90, 247), 0 0 5px rgb(92, 90, 247),
+        0 0 10px rgb(92, 90, 247), 0 0 20px rgb(92, 90, 247),
+        0 0 40px rgb(92, 90, 247);
+}
+
+.Event-4-d1-active,
+.Event-4-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 116, 229, 0.756),
+        0 0 5px rgba(255, 116, 229, 0.756), 0 0 10px rgba(255, 116, 229, 0.756),
+        0 0 20px rgba(255, 116, 229, 0.756), 0 0 40px rgba(255, 116, 229, 0.756);
+}
+
+.Event-5-d1-active,
+.Event-5-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 147, 64, 0.832),
+        0 0 5px rgba(255, 147, 64, 0.832), 0 0 10px rgba(255, 147, 64, 0.832),
+        0 0 20px rgba(255, 147, 64, 0.832), 0 0 40px rgba(255, 147, 64, 0.832);
+}
+
+.Event-6-d1-active,
+.Event-6-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(0, 221, 255, 0.832),
+        0 0 5px rgba(0, 221, 255, 0.832), 0 0 10px rgba(0, 221, 255, 0.832),
+        0 0 20px rgba(0, 221, 255, 0.832), 0 0 40px rgba(0, 221, 255, 0.832);
+}
+
+.Event-7-d1-active,
+.Event-7-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(120, 37, 254, 0.832),
+        0 0 5px rgba(120, 37, 254, 0.832), 0 0 10px rgba(120, 37, 254, 0.832),
+        0 0 20px rgba(120, 37, 254, 0.832), 0 0 40px rgba(120, 37, 254, 0.832);
+}
+
+.Event-8-d1-active,
+.Event-8-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(116, 255, 186, 0.756),
+        0 0 5px rgba(116, 255, 186, 0.756), 0 0 10px rgba(116, 255, 186, 0.756),
+        0 0 20px rgba(116, 255, 186, 0.756), 0 0 40px rgba(116, 255, 186, 0.756);
+}
+
+.Event-9-d1-active,
+.Event-9-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 116, 229, 0.756),
+        0 0 5px rgba(255, 116, 229, 0.756), 0 0 10px rgba(255, 116, 229, 0.756),
+        0 0 20px rgba(255, 116, 229, 0.756), 0 0 40px rgba(255, 116, 229, 0.756);
+}
+
+.Event-10-d1-active,
+.Event-10-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(225, 93, 36, 0.756),
+        0 0 5px rgba(225, 93, 36, 0.756), 0 0 10px rgba(225, 93, 36, 0.756),
+        0 0 20px rgba(225, 93, 36, 0.756), 0 0 40px rgba(225, 93, 36, 0.756);
+}
+
+.Event-11-d1-active,
+.Event-11-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(120, 37, 254, 0.832),
+        0 0 5px rgba(120, 37, 254, 0.832), 0 0 10px rgba(120, 37, 254, 0.832),
+        0 0 20px rgba(120, 37, 254, 0.832), 0 0 40px rgba(120, 37, 254, 0.832);
+}
+
+.Event-12-d1-active,
+.Event-12-d1:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(120, 37, 254, 0.832),
+        0 0 5px rgba(120, 37, 254, 0.832), 0 0 10px rgba(120, 37, 254, 0.832),
+        0 0 20px rgba(120, 37, 254, 0.832), 0 0 40px rgba(120, 37, 254, 0.832);
+}
+
+
+
+/* Webbit */
+.Event-1-d2 {
+    grid-row: 2;
+    grid-column: 1 / span 14;
+}
+
+/* Cricket(w) */
+.Event-2-d2 {
+    grid-row: 3;
+    grid-column: 1 / span 3;
+}
+
+/* Hackathon R2 */
+.Event-3-d2 {
+    grid-row: 3;
+    grid-column: 5 / span 12;
+}
+
+/* Football */
+.Event-4-d2 {
+    grid-row: 4;
+    grid-column: 2 / span 3;
+}
+
+/* Sharlock */
+.Event-5-d2 {
+    grid-row: 4;
+    grid-column: 5 / span 10;
+}
+
+/* G20 r1 */
+.Event-6-d2 {
+    grid-row: 5;
+    grid-column: 3 / span 2;
+}
+
+/* Alpha Analyst */
+.Event-7-d2 {
+    grid-row: 7;
+    grid-column: 3 / span 12;
+}
+
+/* G20 r2 */
+.Event-8-d2 {
+    grid-row: 5;
+    grid-column: 11 / span 2;
+}
+
+/* valedictory */
+.Event-9-d2 {
+    grid-row: 2 / span 5;
+    grid-column: 17 / span 4;
+}
+
+/* queens gambit */
+.Event-10-d2 {
+    grid-row: 6;
+    grid-column: 5 / span 8;
+}
+
+/*Final Sprint*/
+.Event-11-d2 {
+    grid-row: 3;
+    grid-column: 1 / span 3;
+}
+
+.Event-1-d2-active,
+.Event-1-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(120, 37, 254, 0.832),
+        0 0 5px rgba(120, 37, 254, 0.832), 0 0 10px rgba(120, 37, 254, 0.832),
+        0 0 20px rgba(120, 37, 254, 0.832), 0 0 40px rgba(120, 37, 254, 0.832);
+}
+
+.Event-2-d2-active,
+.Event-2-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(116, 255, 186, 0.756),
+        0 0 5px rgba(116, 255, 186, 0.756), 0 0 10px rgba(116, 255, 186, 0.756),
+        0 0 20px rgba(116, 255, 186, 0.756), 0 0 40px rgba(116, 255, 186, 0.756);
+}
+
+.Event-3-d2-active,
+.Event-3-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 147, 64, 0.832),
+        0 0 5px rgba(255, 147, 64, 0.832), 0 0 10px rgba(255, 147, 64, 0.832),
+        0 0 20px rgba(255, 147, 64, 0.832), 0 0 40px rgba(255, 147, 64, 0.832);
+}
+
+.Event-4-d2-active,
+.Event-4-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 116, 229, 0.756),
+        0 0 5px rgba(255, 116, 229, 0.756), 0 0 10px rgba(255, 116, 229, 0.756),
+        0 0 20px rgba(255, 116, 229, 0.756), 0 0 40px rgba(255, 116, 229, 0.756);
+}
+
+.Event-5-d2-active,
+.Event-5-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(0, 221, 255, 0.832),
+        0 0 5px rgba(0, 221, 255, 0.832), 0 0 10px rgba(0, 221, 255, 0.832),
+        0 0 20px rgba(0, 221, 255, 0.832), 0 0 40px rgba(0, 221, 255, 0.832);
+}
+
+.Event-6-d2-active,
+.Event-6-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(116, 255, 186, 0.756),
+        0 0 5px rgba(116, 255, 186, 0.756), 0 0 10px rgba(116, 255, 186, 0.756),
+        0 0 20px rgba(116, 255, 186, 0.756), 0 0 40px rgba(116, 255, 186, 0.756);
+}
+
+.Event-7-d2-active,
+.Event-7-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(255, 242, 67, 0.756),
+        0 0 5px rgba(255, 242, 67, 0.756), 0 0 10px rgba(255, 242, 67, 0.756),
+        0 0 20px rgba(255, 242, 67, 0.756), 0 0 40px rgba(255, 242, 67, 0.756);
+}
+
+.Event-8-d2-active,
+.Event-8-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(145, 37, 246, 0.756),
+        0 0 5px rgba(145, 37, 246, 0.756), 0 0 10px rgba(145, 37, 246, 0.756),
+        0 0 20px rgba(145, 37, 246, 0.756), 0 0 40px rgba(145, 37, 246, 0.756);
+}
+
+.Event-9-d2-active,
+.Event-9-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(45, 255, 255, 0.832),
+        0 0 20px rgba(45, 255, 255, 0.832), 0 0 40px rgba(45, 255, 255, 0.832),
+        0 0 80px rgba(45, 255, 255, 0.832), 0 0 160px rgba(45, 255, 255, 0.832);
+}
+
+.Event-10-d2-active,
+.Event-10-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(246, 232, 37, 0.756),
+        0 0 5px rgba(215, 246, 37, 0.756), 0 0 10px rgba(246, 239, 37, 0.756),
+        0 0 20px rgba(246, 243, 37, 0.756), 0 0 40px rgba(246, 246, 37, 0.756);
+}
+
+.Event-11-d2-active,
+.Event-11-d2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px rgba(254, 37, 182, 0.832),
+        0 0 5px rgba(254, 37, 250, 0.832), 0 0 10px rgba(240, 37, 254, 0.832),
+        0 0 20px rgba(250, 37, 254, 0.832), 0 0 40px rgba(236, 37, 254, 0.832);
+}
+
+@media screen and (max-width: 830px) {
+    .calendar-heading {
+        font-size: 3rem;
+        -webkit-text-stroke: 3px transparent;
+        /* -webkit-text-stroke: 1px #FF2D00; */
+    }
+
+    .day {
+        font-size: 1.5rem;
+    }
+
+    .Event {
+        font-size: x-small;
+    }
+
+    .timeline-main {
+        width: 100vw;
+        overflow-x: scroll;
+        padding: 0px;
+        border-radius: 15px;
+    }
+
+    .gantt-chart {
+        width: 1000px;
+        overflow-x: scroll;
+    }
+}

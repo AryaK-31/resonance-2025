@@ -1,0 +1,86 @@
+.events-details-container {
+	color: white;
+	margin: 0 3%;
+	font-family: "Play";
+}
+
+.rules{
+	color: yellow;
+}
+
+.event-details-description {
+	border: 2px solid red;
+	border-radius: 10px;
+	margin: 5%;
+	font-family: "Poppins";
+}
+
+.description-para-tag {
+	margin: 10px;
+}
+.pulse {
+	--color: #ef6eae;
+	--hover: #ef8f6e;
+}
+.pulse:hover,
+.pulse:focus {
+	animation: pulse 1s;
+	box-shadow: 0 0 0 2em transparent;
+}
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--hover);
+	}
+}
+button {
+	color: var(--color);
+	transition: 0.25s;
+}
+button:hover,
+button:focus {
+	border-color: var(--hover);
+	color: #fff;
+}
+button {
+	background: none;
+	border: 2px solid;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	padding: 1em 2em;
+}
+.offset {
+	box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+}
+.offset:hover,
+.offset:focus {
+	box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+}
+.offset {
+	--color: #19bc8b;
+	--hover: #1973bc;
+}
+ul {
+	list-style-type: none;
+}
+
+.reg-closed {
+	font-family: "Play";
+	font-size: 1.5rem;
+	color: #971717;
+	border: #3090b07e 2px solid;
+	padding: 2%;
+	margin-left: 40px;
+	/* align-self: center; */
+	/* justify-content: center; */
+} 
+
+/* .reg-closed {
+    position: relative;
+    left: 35%;
+    font-family: "Play";
+    font-size: 1.5rem;
+    color: #ff0000;
+    border: #2f5367 2px solid;
+    padding: 1%;
+} */

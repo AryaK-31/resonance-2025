@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+.navbar{
+    margin: 0 7%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    box-shadow: 1px 1px 8px 3px rgb(72, 72, 72);
+    position: relative;
+    top : 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: sticky;
+    z-index: 1000;
+}
+
+.navbar-transparent {
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Solid background with slight shadow */
+.navbar-scrolled {
+  background-color: rgb(2, 85, 0); /* Change to your desired color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.navbar-nav{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navitem {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.navitem{
+    color: white;
+    margin: 0 20px  0;
+    font-size: 1.2rem;
+    font-family: 'Play';
+}
+
+.login-navitem{
+    position:relative;
+    /* top:10px; */
+    display: inline-block;
+    /* padding: 15px 30px; */
+    border: 1px solid gray;
+    border-color: #2196f3;
+    border-radius: 10px;
+    padding:  6px;
+    /* color: #2196f3; */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s
+    
+
+}
+.login-navitem:hover{
+    color: #255784;
+    background: #93eff2;
+    box-shadow: 0 0 7px #93eff2, 0 0 30px #93eff2, 0 0 60px #93eff2;
+    transition-delay: 0.3s;
+}
+
+.menu-img{
+    height: 35px;
+    width: 35px;
+}
+
+
+/* Title Design */
+.logo-bottom{
+    font-family: Arial, Helvetica, sans-serif;   
+    padding:0 0 10px 15px;
+    border-bottom: 5px solid #0081B4;
+    border-left: 5px solid #0081B4;
+    display: inline;
+}
+
+.logo-top{
+    padding:0 20px 0 0;
+    border-right: 5px solid #0081B4;
+    border-top: 5px solid #0081B4;   
+}
+
+.title{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-family: 'Play';
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo {
+    pointer-events: none;
+    height: auto;
+    max-height: 2rem; 
+    width: auto;
+    max-width: 100%; 
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+@media screen and (max-width: 800px) {
+    
+    .navbar-brand {
+
+        width: 40%;
+
+    }
+}

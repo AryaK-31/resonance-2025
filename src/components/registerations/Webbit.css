@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+.form-step {
+    border: 1px solid rgba(104, 59, 188, 0.1);
+    border-radius: 20px;
+    background: linear-gradient(90deg, #04395d 20%, #310066 100%);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    /* padding: 3vw 3vw; */
+    margin: 5% 3%;
+    z-index: 10;
+    /* height: 800px; */
+}
+
+#lable-tag{
+font-style: normal;
+color: #FFFFFF;
+font-size:2rem;
+display: block;
+
+}
+
+#registration-info {
+    color: red;
+    font-family: "Play";
+    font-weight: 300;
+    /* align-self: center; */
+    text-align: center;
+}
+
+.p-tag
+{
+    color: red;
+    font-family:'Play';
+    /* text-align: center; */
+
+}
+#personalInfo
+{   margin-top:20px;
+    width: max-content;
+    background: linear-gradient(180deg, #5246f7 0%, rgba(3, 200, 206, 0.571) 134.17%);
+    border-radius: 15px;
+    /* padding:.7vw; */
+    font-family: 'Play';
+    font-style: normal;
+    /* font-size: 2rem; */
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+#personal-info
+{   
+    padding: 10px;
+    font-family: 'Play';
+    font-style: normal;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+
+#registeration-input{
+    margin:10px 0;
+    /* text-align:center; */
+    background: #D9D9D9;
+    border-radius: 10px;
+    width:100%;
+    height: 60px;
+}
+
+
+.reg-form{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+	margin: 2%;
+}
+
+input[type] {
+	padding-left: 10px;
+	font-size: large;
+}
+
+/* buttons animation */
+
+/* .Button-for-submission{
+    padding: 10px;
+    background-color: #df8c96;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    box-shadow: 1px 1px 5px 1px grey;
+    margin-bottom: 20px;
+} */
+.font-normal {
+	font-family: "Play";
+	font-style: normal;
+	color: #ffffff;
+	padding-top: 8px;
+	text-transform: uppercase;
+}
+.UPI-ID {
+	color: #ffffff;
+	text-align: center;
+}
+.p-tag2 {
+    color: #FFFFFF;
+}
+
+.pulse:hover, .pulse:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--hover);
+	}
+}
+.pulse {
+	--color: #00ccf5;
+	--hover: #ef8f6e;
+}
+button {
+    color: var(--color);
+    transition: 0.25s;
+    text-transform: uppercase;
+    font-family: 'Play';
+}
+button:hover,
+button:focus {
+	border-color: var(--hover);
+	color: #fff;
+}
+
+button {
+	background: none;
+	border: 2px solid;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	padding: 1em 2em;
+	text-transform: uppercase;
+	font-family: "Play";
+}
+@media screen and(max-width:650px) {
+	.form-step {
+		margin-top: 5%;
+		margin: 10px 10px;
+	}
+}

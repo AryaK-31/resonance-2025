@@ -1,0 +1,61 @@
+.main-logo-bg {
+    height: 100vh;
+    margin-top: 0;
+}
+
+.main-logo {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.explore-button-a {
+    position: relative;
+    top: 20%;
+    color: #b1b1b1;
+    font-family: "Play";
+    border-radius: 15px;
+}
+
+.explore-btn {
+    border-radius: 15px;
+    border: #2e99a0 1px solid;
+}
+
+.logo-img-m {
+    display: none;
+}
+
+.logo-img {
+    max-width: 100%;
+    max-height: 50%;
+    pointer-events: none;
+}
+
+.sponsors-heading {
+    font-family: "Play";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+    .main-logo {
+        height: 80vh;
+    }
+
+    .logo-img {
+        display: none;
+    }
+
+    .logo-img-m {
+        display: block;
+        width: 85%;
+    }
+    .sponsors-heading {
+        font-size: 2rem;
+    }
+}
