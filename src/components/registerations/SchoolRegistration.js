@@ -5,21 +5,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../../context/Firebase"; // ✅ fixed import
 import Data from "../../API/card-data";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { firebaseApp } from "../../context/Firebase";
 import { getAuth } from "firebase/auth";
 
 const SchoolRegistration = () => {
     const { eventName } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const auth = getAuth(firebaseApp);
-    console.log('auth', auth);
-
-
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
-    console.log(eventData);
 
     const [userName, setUserName] = useState("");
     const [step, setStep] = useState(1); // Track the current form step
@@ -56,6 +53,34 @@ const SchoolRegistration = () => {
         // Cleanup listener on unmount
         return () => unsubscribe();
     }, [auth, navigate]);
+
+    // ✅ Warn user on browser back button / refresh / tab close
+    useEffect(() => {
+        const handleBeforeUnload = (e) => {
+            e.preventDefault();
+            e.returnValue = ""; // Required for Chrome
+        };
+
+        const handlePopState = () => {
+            const confirmLeave = window.confirm(
+                "You are in the middle of a form. Leaving this page will lose all progress. Do you still want to continue?"
+            );
+            if (!confirmLeave) {
+                // Push user back into the form
+                navigate(location.pathname);
+            }
+        };
+
+        if (location.pathname.includes("/register")) {
+            window.addEventListener("beforeunload", handleBeforeUnload); // Tab close / refresh
+            window.addEventListener("popstate", handlePopState); // Browser back button
+        }
+
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [location.pathname, navigate]);
 
     const validateStep = () => {
         const newErrors = {};
@@ -134,7 +159,7 @@ const SchoolRegistration = () => {
         setIsSubmitting(true);
         try {
             const submissionData = new FormData();
-            submissionData.append("event_name", eventData?.event_name || eventName)
+            submissionData.append("event_name", eventData?.event_name || eventName);
             Object.entries(formData).forEach(([key, value]) =>
                 submissionData.append(key, value)
             );

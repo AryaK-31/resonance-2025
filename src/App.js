@@ -10,10 +10,11 @@ import SchoolRegistration from './components/registerations/SchoolRegistration'
 import { Design, Footer, Navbar } from "./components";
 import Disclaimer from "./components/Disclaimer";
 
+
 function App() {
   return (
     <>
-      <Disclaimer />
+      {/* <Disclaimer /> */}
       <Design />
       <BrowserRouter>
         <ScrollToTop />
@@ -27,6 +28,7 @@ function App() {
           <Route path="guide" element={<Disclaimer />} />
         </Routes>
       </BrowserRouter>
+
       <Footer />
     </>
   );

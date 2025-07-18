@@ -66,6 +66,7 @@ const Navbar = () => {
               to="/"
               className="navbar-brand title"
               style={{ textDecoration: "none", border: "none" }}
+              onClick={(e) => handleNavClick(e, "/")} // 👈 Added check for logo click
             >
               <img src={ResonanceMainLogo} className="img-fluid logo" />
             </Link>
