@@ -1,58 +1,44 @@
 import { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
-import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    onAuthStateChanged,
-} from "firebase/auth";
-import { getDatabase, set, ref } from "firebase/database";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA4qQTGQFwJgdpdeV4EWy48O8ayEeAY48w",
-    authDomain: "anantya-2k23.firebaseapp.com",
-    projectId: "anantya-2k23",
-    storageBucket: "anantya-2k23.appspot.com",
-    messagingSenderId: "884093645322",
-    appId: "1:884093645322:web:dc3b2322226cf7bbfde5f3",
-    databaseURL: "https://anantya-2k23-default-rtdb.firebaseio.com/",
+    apiKey: "AIzaSyCh8G3b1rPqzyKr31D85yRpOpy1YWwZWz0",
+    authDomain: "resonance-70ed1.firebaseapp.com",
+    projectId: "resonance-70ed1",
+    storageBucket: "resonance-70ed1.firebasestorage.app",
+    messagingSenderId: "652126282202",
+    appId: "1:652126282202:web:a5fcb706281a523fb5e0e3"
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
-export const firebaseAuth = getAuth(firebaseApp);
-const googleProvider = new GoogleAuthProvider();
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+const provider = new GoogleAuthProvider();
+
+// Create a context
 const FirebaseContext = createContext(null);
-const database = getDatabase(firebaseApp);
 
 export const useFirebase = () => useContext(FirebaseContext);
 
-export const FirebaseProvider = (props) => {
-    const signupWithGoogle = () => {
-        return signInWithPopup(firebaseAuth, googleProvider);
+// Provide helper methods
+export const FirebaseProvider = ({ children }) => {
+    const signupWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
+            console.log("Logged in user:", result.user);
+            return result; // Return result to caller
+        } catch (error) {
+            console.error("Google sign-in error:", error);
+            throw error;
+        }
     };
 
-    const LoggedInUser = onAuthStateChanged(firebaseAuth, (user) => {
-        if (user) {
-            //user is logged in
-            // console.log('Hello', user);
-        } else {
-            // console.log("You are logged out");
-        }
-    });
-
-    const putData = (key, data) => set(ref(database, key), data);
-
-
-
     return (
-        <FirebaseContext.Provider
-            value={{
-                signupWithGoogle,
-                LoggedInUser,
-                putData
-            }}
-        >
-            {props.children}
+        <FirebaseContext.Provider value={{ signupWithGoogle }}>
+            {children}
         </FirebaseContext.Provider>
     );
 };
+
+export { firebaseApp, auth, provider };

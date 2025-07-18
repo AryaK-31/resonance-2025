@@ -3,20 +3,18 @@ import "../../styles/schoolRegister.css";
 import Navbar from "../Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { firebaseAuth } from "../../context/Firebase";
-import Data from "../../API/card-data"
-import { useParams } from "react-router-dom";
+import { auth } from "../../context/Firebase"; // ✅ fixed import
+import Data from "../../API/card-data";
+import { useParams, useNavigate } from "react-router-dom";
 
 const SchoolRegistration = () => {
-
-
     const { eventName } = useParams();
+    const navigate = useNavigate();
 
     console.log('event name', eventName);
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
     console.log(eventData);
-
 
     const [userName, setUserName] = useState("");
     const [step, setStep] = useState(1); // Track the current form step
@@ -34,12 +32,21 @@ const SchoolRegistration = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // ✅ Check if user is logged in
     useEffect(() => {
-        const currentUser = firebaseAuth.currentUser;
+        const currentUser = auth.currentUser;
         if (currentUser) {
             setUserName(currentUser.displayName || "");
+        } else {
+            console.log("User not logged in, redirecting...");
+            toast.error("Please log in first", {
+                position: "top-center",
+                autoClose: 3000,
+                theme: "colored",
+            });
+            navigate("/"); // Redirect to home or login
         }
-    }, []);
+    }, [navigate]);
 
     const validateStep = () => {
         const newErrors = {};
@@ -161,7 +168,7 @@ const SchoolRegistration = () => {
             case 1:
                 return (
                     <>
-                        <h3 classname="">Step 1: School Details</h3>
+                        <h3>Step 1: School Details</h3>
                         <div className="form-group">
                             <label htmlFor="school_name">School Name</label>
                             <input
@@ -203,7 +210,7 @@ const SchoolRegistration = () => {
             case 2:
                 return (
                     <>
-                        <h3 classname="]">Step 2: Principal Details</h3>
+                        <h3>Step 2: Principal Details</h3>
                         <div className="form-group">
                             <label htmlFor="principal_name">Principal Name</label>
                             <input
@@ -233,7 +240,7 @@ const SchoolRegistration = () => {
             case 3:
                 return (
                     <>
-                        <h3 classname="]">Step 3: Teacher Details</h3>
+                        <h3>Step 3: Teacher Details</h3>
                         <div className="form-group">
                             <label htmlFor="teacher_name">Teacher Name</label>
                             <input
@@ -270,13 +277,12 @@ const SchoolRegistration = () => {
                             />
                             {errors.teacher_email && <small className="error-text">{errors.teacher_email}</small>}
                         </div>
-
                     </>
                 );
             case 4:
                 return (
                     <>
-                        <h3 classname="">Step 4: Upload Link</h3>
+                        <h3>Step 4: Upload Link</h3>
                         <div className="form-group">
                             <label htmlFor="drive_link">Google Drive Link to Students List</label>
                             <h6 className="allowed-classes"> Kindly Note that you have select strictly {eventData?.allowedClasses}</h6>

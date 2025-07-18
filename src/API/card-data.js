@@ -28,7 +28,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their own lunch and water bottles."
     ],
     rulelink:
-      "https://docs.google.com/document/d/1GCRhJEBPm8Hms9aE328IuAKBxKblU57x/edit",
+      "https://drive.google.com/file/d/1Xrx4R7s37PsGvyFNVaoy5o4DJhgc2b1S/view?usp=drive_link",
     image: "./posters/storyso.png",
     path: "/story-spin-off",
     isOpen: true,
@@ -37,13 +37,13 @@ const cardData = [
   {
     id: 2,
     zone: "Language Zone",
-    event_name: "Sell It Smart",
+    event_name: "Sell It Smart - Ad It Up",
     date: "18th August, 2025",
     time: "3:15 PM - 4:30 PM",
     short_description:
-      "'Pitch the Product – Ad-It-Up' is a Shark Tank-style event where students become young innovators. Create and pitch a unique, imaginative product or app through a mock advertisement using a PowerPoint or poster. Showcase your entrepreneurial skills as you present your idea to a panel of judges!",
+      "'Sell It Smart - Ad It Up' is a Shark Tank-style event where students become young innovators. Create and pitch a unique, imaginative product or app through a mock advertisement using a PowerPoint or poster. Showcase your entrepreneurial skills as you present your idea to a panel of judges!",
     detailed_description:
-      "Step into the shoes of young innovators and entrepreneurs! Pitch the Product – Adspoofs is a Shark Tank-style event where students will create and pitch a unique, imaginative product or app designed to solve real-life problems or offer quirky solutions. With the help of a PowerPoint presentation or a creative poster, participants will present their “mock advertisement” and idea to a panel of judges, showcasing not just creativity but also persuasive and entrepreneurial thinking.",
+      "Step into the shoes of young innovators and entrepreneurs! Sell It Smart - Ad It Up is a Shark Tank-style event where students will create and pitch a unique, imaginative product or app designed to solve real-life problems or offer quirky solutions. With the help of a PowerPoint presentation or a creative poster, participants will present their “mock advertisement” and idea to a panel of judges, showcasing not just creativity but also persuasive and entrepreneurial thinking.",
     Type: "Team of 3",
     allowedClasses: 'ANY 3 participants from Grade 6 to 10',
     venue: "Acharya Atre Hall - Vallabhnagar",
@@ -64,7 +64,7 @@ const cardData = [
     ],
 
     rulelink:
-      "https://docs.google.com/document/d/1p38V_q_yGArzQXYwrXYfIG7eQP3sY7zl/edit",
+      "https://drive.google.com/file/d/1YlR6JetNvAykedkeOi3mDWtuu8gb9B8G/view?usp=drive_link",
     image: "./posters/sellis.jpg",
     path: "/sell-it-smart",
     isOpen: true,
@@ -101,7 +101,7 @@ const cardData = [
     ],
 
     rulelink:
-      "https://docs.google.com/document/d/1Z9xUR4kh0iN26THWiAymVjGSPZEcG7Yw/edit#heading=h.dufdtm81c1u4",
+      "https://drive.google.com/file/d/1p5hD9toFqK9Ue5-26cZ3NPc3mBYRHL9L/view?usp=drive_link",
     image: "./posters/theatreom.png",
     path: "/theatre-o-mania",
     isOpen: true,
@@ -137,7 +137,7 @@ const cardData = [
     ],
 
     rulelink:
-      "https://docs.google.com/document/d/16X4PfwsbAljkwkmmuOiYxVAUayTaa-DV/edit",
+      "https://drive.google.com/file/d/1Etwld_yTU7fsP9GgK_bAMCKlQFS-L5L2/view?usp=drive_link",
     image: "./posters/poetrys.png",
     path: "/poetry-slam",
     isOpen: true,
@@ -174,7 +174,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1ga8TUSZl5VY8DwxJyGTLKK1cSRkE3OB0/view?usp=drive_link",
     image: "./posters/gks.png",
     path: "/geeta-ka-sar",
     isOpen: true,
@@ -213,7 +213,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1q1JAI-WUajgXNzVLl-wcg3fB7J4pPjCu/view?usp=drive_link",
     image: "./posters/sbs.png",
     path: "/nukkad-natak",
     isOpen: true,
@@ -250,7 +250,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1_Nt8eMTOsl8BMhOcn29FnZ-jK7sRK0N6/view?usp=drive_link",
     image: "./posters/sk.png",
     path: "/stage-kaliedoscope",
     isOpen: true,
@@ -278,6 +278,8 @@ const cardData = [
       "⦿ Each group must perform a fusion of different musical styles.",
       "⦿ Music played live by student musicians is highly encouraged and will carry added value.",
       "⦿ Own instruments must be brought. No drum kits",
+      "⦿ 4 Jack to Jack cables will be provided",
+      "⦿ Performance time limit : ",
       "⦿ Group size: Maximum 12 including singers and musicians.",
       "⦿ Kindly adhere strictly to the time limit.",
       "⦿ Please confirm your participation by filling in the registration form by 30th July, 2025.",
@@ -285,7 +287,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/17-zGzTgpMEoiFhKHpGpSpou-mKugKdub/view?usp=drive_link",
     image: "./posters/rw.png",
     path: "/rhythm-warriors",
     isOpen: true,
@@ -319,7 +321,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1pjNkKaDRsyXaw6XAVh00SohI-GvLNKCh/view?usp=drive_link",
     image: "./posters/cm.png",
     path: "/festival-collage-making",
     isOpen: true,
@@ -355,7 +357,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1oSTTnGsOfGJJ5212a0ieaBvb-Bb4gc33/view?usp=drive_link",
     image: "./posters/cor.png",
     path: "/canvas-of-creativity",
     isOpen: true,
@@ -396,7 +398,7 @@ const cardData = [
       "⦿ All teams are expected to strictly adhere to the given timings; failing which, the teams will not be allowed to participate."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1iK5Hj6yKn6GIexZBMJVh8k1Y-mhwhzht/view?usp=drive_link",
     image: "./posters/yie.png",
     path: "/young-innovators-expo",
     isOpen: true,
@@ -432,7 +434,7 @@ const cardData = [
       "⦿ Please confirm your registration by filling up the following Google form latest by 30th July, 2025."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1iK5Hj6yKn6GIexZBMJVh8k1Y-mhwhzht/view?usp=drive_link",
     image: "./posters/bcwa.png",
     path: "/block-coding-with-ai",
     isOpen: true,
@@ -469,7 +471,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and accompanying teachers. All are requested to carry their own lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1orIQbDEnTjVXWAnx0WrH7MvIvL0Vjp2H/view?usp=drive_link",
     image: "./posters/deb.png",
     path: "/debate",
     isOpen: true,
@@ -537,7 +539,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1OXrQ5lFaxuPYHffSPKRx65Bjd6f5Zvk6/view?usp=drive_link",
     image: "./posters/wqq.png",
     path: "/world-quest-quiz",
     isOpen: true,

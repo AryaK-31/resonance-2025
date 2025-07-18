@@ -6,6 +6,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ResonanceMainLogo from "../assets/ResonanceMainLogo.png";
+import Disclaimer from "./Disclaimer"; // 👈 Import Disclaimer Modal
 
 const auth = getAuth(firebaseApp);
 
@@ -13,7 +14,8 @@ const Navbar = () => {
   const firebase = useFirebase();
 
   const [user, setUser] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false); 
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showModal, setShowModal] = useState(false); // 👈 Modal state
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -44,6 +46,9 @@ const Navbar = () => {
   if (user === null) {
     return (
       <>
+        {showModal && (
+          <Disclaimer onClose={() => setShowModal(false)} />
+        )}
         <nav
           className={`navbar navbar-expand-lg sticky-top ${
             isScrolled ? "navbar-scrolled" : "navbar-transparent"
@@ -82,6 +87,18 @@ const Navbar = () => {
                   <NavLink to="/events" className="nav-link">
                     <span className="navitem">Events</span>
                   </NavLink>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="#"
+                    className="nav-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowModal(true); // 👈 Open modal on Guide click
+                    }}
+                  >
+                    <span className="navitem">Guide</span>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <NavLink to="/calender" className="nav-link">
@@ -128,6 +145,9 @@ const Navbar = () => {
 
   return (
     <>
+      {showModal && (
+        <Disclaimer onClose={() => setShowModal(false)} />
+      )}
       <nav
         className={`navbar navbar-expand-lg sticky-top ${
           isScrolled ? "navbar-scrolled" : "navbar-transparent"
@@ -148,7 +168,10 @@ const Navbar = () => {
           >
             <img src="menu.png" alt="" className="menu-img" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
@@ -159,6 +182,18 @@ const Navbar = () => {
                 <NavLink to="/events" className="nav-link">
                   <span className="navitem">Events</span>
                 </NavLink>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#"
+                  className="nav-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowModal(true); // 👈 Open modal on Guide click
+                  }}
+                >
+                  <span className="navitem">Guide</span>
+                </a>
               </li>
               <li className="nav-item">
                 <NavLink to="/calender" className="nav-link">
