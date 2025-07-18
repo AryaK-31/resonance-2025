@@ -539,7 +539,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1OXrQ5lFaxuPYHffSPKRx65Bjd6f5Zvk6/view?usp=drive_link",
+      "https://drive.google.com/file/d/1bmYIAmUBUx0nkgLOnVRPKBzYFMHu1Hhb/view?usp=drive_link",
     image: "./posters/wqq.png",
     path: "/world-quest-quiz",
     isOpen: true,
