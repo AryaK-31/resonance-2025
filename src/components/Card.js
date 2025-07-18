@@ -1,10 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CardCss } from "../styles";
 import Data from "../API/card-data";
 import { NavLink } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { firebaseApp } from "../context/Firebase";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const auth = getAuth(firebaseApp);
+const provider = new GoogleAuthProvider();
 
 const Card = () => {
   const [data, setData] = useState(Data);
+  const [user, setUser] = useState(null);
+
+  // Watch for login state changes
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Handle Google Sign In
+  const handleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      toast.success(`Welcome ${result.user.displayName}!`, {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Login failed. Please try again.", {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
+    }
+  };
 
   return (
     <>
@@ -19,14 +55,21 @@ const Card = () => {
               <p className="card-subtitle">{elem.date}</p>
               <p className="card-info">{elem.short_description}</p>
               <div className="btn">
-                <NavLink to={elem.path} className="nav-link">
-                  <button className="raise">Register</button>
-                </NavLink>
+                {user ? (
+                  <NavLink to={elem.path} className="nav-link">
+                    <button className="raise">Register</button>
+                  </NavLink>
+                ) : (
+                  <button className="raise" onClick={handleLogin}>
+                    Login
+                  </button>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
+      <ToastContainer />
     </>
   );
 };

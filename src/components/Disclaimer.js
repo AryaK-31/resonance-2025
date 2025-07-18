@@ -18,7 +18,7 @@ const Disclaimer = () => {
         <div className="modal-overlay" id="guide">
           <div className="modal-content">
             <h2 className="modal-title">⚠️ Disclaimer</h2>
-            <h3 className="modal-subtitle">click on WEBSITE GUIDE to know how register for an event  </h3>
+            <h3 className="modal-subtitle">click on WEBSITE GUIDE to know how to register for an event  </h3>
             <p className="modal-text">
               Use this site for legitimate work only. Fill the event forms with
               correct information. Miscreants or fake form fillers will face

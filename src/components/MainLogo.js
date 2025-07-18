@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BIRDS from "vanta/dist/vanta.fog.min";
-import { mainLogo, mainLogoM } from "../assets";
-import Design from "./Design";
 import Navbar from "./Navbar";
-import { MainLogo } from "../styles";
 import ResonanceMainLogo from "../assets/ResonanceMainLogo.png"
 import ResonanceSecond from "../assets/ResonanceSecond.png"
 import { NavLink, Link } from "react-router-dom";
