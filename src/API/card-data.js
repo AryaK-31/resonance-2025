@@ -89,16 +89,17 @@ const cardData = [
     scontact2: "cc5@myggis.org",
     rubrics: "Creativity in Adaptation, Acting and Dialogue Delivery, Relevance to Modern Setting, Team Coordination and Stage Use, Overall Impact and Expression",
     rules: [
-      "⦿ Poems can be in English, Hindi, or Marathi.",
-      "⦿ Students may choose published poems or original compositions (with author credit).",
-      "⦿ Each participant will have a maximum of 2 minutes.",
-      "⦿ Props and costumes are not allowed.",
-      "⦿ No background music or sound effects permitted.",
-      "⦿ Kindly adhere strictly to the time limit.",
-      "⦿ Please confirm your participation by filling in the registration form by 30th July, 2025.",
-      "⦿ Participants should strictly come in school uniform.",
-      "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
-    ],
+      "❖ Each team must choose a scene from any of Shakespeare’s plays.",
+      "❖ The scene must be adapted to a modern context (e.g., school, office, contemporary social issues).",
+      "❖ Dialogues may be modified to suit the modern setting but should retain the essence of the original.",
+      "❖ Each performance must be within 5 minutes.",
+      "❖ Kindly adhere strictly to the time limit.",
+      "❖ Use of simple props, background music and costumes is allowed but must be easy to manage.",
+      "❖ Language may be English or modernized English.",
+      "❖ Respectful and age-appropriate content only.",
+      "❖ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
+    ]
+    ,
 
     rulelink:
       "https://drive.google.com/file/d/1p5hD9toFqK9Ue5-26cZ3NPc3mBYRHL9L/view?usp=drive_link",
