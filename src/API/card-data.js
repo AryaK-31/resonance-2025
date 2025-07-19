@@ -79,8 +79,8 @@ const cardData = [
       "Theatre-o-mania: Modern Shakespeare invites students to reimagine iconic Shakespearean scenes in today’s world—set in a school, office, or modern social setting. Bring classic characters to life with fresh creativity, dramatic flair, and cultural relevance!",
     detailed_description:
       " 'All the world’s a stage, and all the men and women merely players.' – William Shakespeare.Theatre-o-mania “Modern Shakespeare” invites students to breathe new life into the timeless plays of William Shakespeare. Participants will select a scene from classics like *Macbeth*, *Hamlet*, *Othello*, or *Romeo & Juliet* and perform it with a twist — reimagined in a modern-day school, office, or social setting. This event encourages creativity, dramatic interpretation, teamwork, and cultural relevance while giving Shakespeare’s characters a fresh voice in today’s context.",
-    Type: "Team of 5",
-    allowedClasses: '5 participants from Grade 6 to 10(1 from each grade)',
+    Type: "Team of 7",
+    allowedClasses: 'Max 7 participants',
     venue: "Acharya Atre Hall - Vallabhnagar",
     time: "12.15 PM to 1.45 PM",
     studn1: "Ms. Manisha",
