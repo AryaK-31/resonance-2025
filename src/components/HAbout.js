@@ -32,7 +32,7 @@ const HAbout = () => {
                         <a
                             target={"_blank"}
                             className="anchor-tag "
-                            href="https://drive.google.com/file/d/1mklSsk1VBQeCt4rBK5rClJPa5X_iWCbT/view"
+                            href="https://drive.google.com/file/d/19CIBHQiMsDSjiQ2TZtqmG-YRbNkzoBo4/view?usp=drive_link"
                         >
                             <button className="button-64">
                                 <span className="text">DOWNLOAD BROCHURE </span>

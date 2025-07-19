@@ -506,7 +506,7 @@ const cardData = [
       "⦿ Light refreshments will be provided; however, all are requested to carry their own lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1d1aGQYlWvUir6ZRVhyy-3nbJC2VLx8rr/view?usp=share_link",
+      "https://drive.google.com/file/d/1OXrQ5lFaxuPYHffSPKRx65Bjd6f5Zvk6/view?usp=drive_link",
     image: "./posters/jam.png",
     path: "/just-a-minute",
     isOpen: true,
