@@ -296,7 +296,7 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 3: Teacher Details</h3>
                         <div className="form-group">
-                            <label htmlFor="teacher_name">Teacher Name</label>
+                            <label htmlFor="teacher_name">Teacher Name (Name cannot be changed)</label>
                             <input
                                 type="text"
                                 name="teacher_name"
@@ -321,7 +321,7 @@ const SchoolRegistration = () => {
                             {errors.teacher_contact && <small className="error-text">{errors.teacher_contact}</small>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="teacher_email">Teacher Email</label>
+                            <label htmlFor="teacher_email">Teacher Email (Email cannot be changed)</label>
                             <input
                                 type="email"
                                 name="teacher_email"
