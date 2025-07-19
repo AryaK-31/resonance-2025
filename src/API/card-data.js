@@ -197,7 +197,7 @@ const cardData = [
     studn1: "Ms. Usha",
     scontact1: "+91 90965 60631",
     studn2: "Email",
-    scontact2: "hodhindi@myggis.org",
+    scontact2: "hodhindi6-10@myggis.org",
     rubrics: "Relevance to Theme (Healthy Eating), Expression and Dialogue Delivery, Clarity of Message, Creativity and Use of Space, Team Coordination & Impact",
     rules: [
       "⦿ Each team must perform a Nukkad Natak (street play) on the topic of Healthy Eating Habits.",
