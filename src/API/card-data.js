@@ -102,7 +102,7 @@ const cardData = [
     ,
 
     rulelink:
-      "https://drive.google.com/file/d/1p5hD9toFqK9Ue5-26cZ3NPc3mBYRHL9L/view?usp=drive_link",
+      "https://drive.google.com/file/d/1e5ZhfYKdKSxJhXxMa0LxkMs8cdez9ulQ/view?usp=sharing",
     image: "./posters/theatreom.png",
     path: "/theatre-o-mania",
     isOpen: true,
