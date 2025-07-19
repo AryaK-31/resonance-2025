@@ -63,6 +63,8 @@ const About = () => {
                 <div>
                   <h2>Event Time</h2>
                   <p>{eventData.time}</p>
+                   <h2>Event Date</h2>
+                  <p>{eventData.date}</p>
                 </div>
               </div>
               <div className="col-lg-4">
