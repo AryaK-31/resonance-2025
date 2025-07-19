@@ -278,7 +278,7 @@ const cardData = [
     rules: [
       "⦿ Each group must perform a fusion of different musical styles.",
       "⦿ Music played live by student musicians is highly encouraged and will carry added value.",
-      "⦿ Own instruments must be brought. No drum kits",
+      "⦿ Own instruments must be brought.",
       "⦿ 4 Jack to Jack cables will be provided",
       "⦿ Performance time limit : ",
       "⦿ Group size: Maximum 12 including singers and musicians.",
