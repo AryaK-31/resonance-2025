@@ -15,6 +15,10 @@ const SchoolRegistration = () => {
     const location = useLocation();
 
     const auth = getAuth(firebaseApp);
+    const currentUser = auth.currentUser
+
+    console.log(currentUser);
+
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
 
@@ -39,6 +43,12 @@ const SchoolRegistration = () => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
             if (currentUser) {
                 setUserName(currentUser.displayName || "");
+                // ✅ Prefill teacher_name and teacher_email in formData
+                setFormData((prev) => ({
+                    ...prev,
+                    teacher_name: currentUser.displayName || "",
+                    teacher_email: currentUser.email || "",
+                }));
             } else {
                 console.log("User logged out in the middle. Redirecting...");
                 toast.error("Session expired. Please log in again.", {
@@ -53,6 +63,7 @@ const SchoolRegistration = () => {
         // Cleanup listener on unmount
         return () => unsubscribe();
     }, [auth, navigate]);
+
 
     // ✅ Warn user on browser back button / refresh / tab close
     useEffect(() => {
@@ -165,7 +176,7 @@ const SchoolRegistration = () => {
             );
 
             const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbzdIPjBBQXvkqLVLYbydUegew4i4zOBWf1pL5YFM838gPu_YzH5xs7vzzF-n-bJPrJWEw/exec",
+                "https://script.google.com/macros/s/AKfycbzaeHqE4DhvmHYwt7qtKJ2PXl2cJ13VQECsvdOp_gZx4dqgDOC1Cf6-BmC6Vn7uFoAhIQ/exec",
                 {
                     method: "POST",
                     body: submissionData,
@@ -289,12 +300,13 @@ const SchoolRegistration = () => {
                             <input
                                 type="text"
                                 name="teacher_name"
-                                value={formData.teacher_name}
+                                value={currentUser.displayName}
                                 onChange={handleChange}
                                 placeholder="Enter teacher's name"
                                 className={errors.teacher_name ? "input-error" : ""}
+                                readOnly
                             />
-                            {errors.teacher_name && <small className="error-text">{errors.teacher_name}</small>}
+
                         </div>
                         <div className="form-group">
                             <label htmlFor="teacher_contact">Teacher Contact</label>
@@ -313,12 +325,13 @@ const SchoolRegistration = () => {
                             <input
                                 type="email"
                                 name="teacher_email"
-                                value={formData.teacher_email}
+                                value={currentUser.email}
                                 onChange={handleChange}
                                 placeholder="Enter teacher's email"
                                 className={errors.teacher_email ? "input-error" : ""}
+                                readOnly
                             />
-                            {errors.teacher_email && <small className="error-text">{errors.teacher_email}</small>}
+
                         </div>
                     </>
                 );
@@ -327,7 +340,7 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 4: Upload Link</h3>
                         <div className="form-group">
-                            <label htmlFor="drive_link">Google Drive Link to Students List</label>
+                            <label htmlFor="drive_link">Paste the URL of Drive link which has the doc of students list on school letter head</label>
                             <h6 className="allowed-classes"> Kindly Note that you have select strictly {eventData?.allowedClasses}</h6>
                             <input
                                 type="url"

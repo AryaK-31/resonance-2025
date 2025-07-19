@@ -147,14 +147,14 @@ const cardData = [
   {
     id: 5,
     zone: "Apni Boli",
-    event_name: "Geeta Ka Sar",
+    event_name: "Geeta Saar",
     date: "12th August, 2025",
     short_description:
       "Geeta – Jivan Ka Margdarshan is a soulful event where students recite verses from the Bhagavad Geeta, interpret their meanings, and connect them to real-life values and situations. It fosters spiritual understanding, reflection, and confident public speaking.",
     detailed_description:
       " Recitation and Reflection on the Teachings of the Bhagavad Geeta “Geeta – Jivan Ka Margdarshan” is a soulful recitation and interpretation event where students will present selected verses from the Bhagavad Geeta, explain their meanings, and thoughtfully relate them to real-life values, situations, and decisions in today’s world. The event aims to cultivate spiritual understanding, reflection, and moral insight while encouraging confident public speaking and deep personal connection with Indian philosophy.",
-    Type: "Team of 6",
-    allowedClasses: '2 participants from Grade 6 to 8(2 from each grade)',
+    Type: "Team of 2",
+    allowedClasses: '2 participants from Grade 6 to 8',
     venue: "GGIS Tathawade",
     time: "9.30 AM to 11.00 AM",
     studn1: "Mr. Jagtap",
@@ -175,7 +175,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1ga8TUSZl5VY8DwxJyGTLKK1cSRkE3OB0/view?usp=drive_link",
+      "https://drive.google.com/file/d/1o2HgJKYONT0MGU-dr7ve-MiK0I1owFJc/view?usp=sharing",
     image: "./posters/gks.png",
     path: "/geeta-ka-sar",
     isOpen: true,
