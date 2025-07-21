@@ -11,6 +11,7 @@ import { Design, Footer, Navbar } from "./components";
 import Disclaimer from "./components/Disclaimer";
 
 import { useState, useEffect } from "react";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -38,9 +39,21 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/calender" element={<Calender />} />
           <Route path="/contact" element={<Footer />} />
-          <Route path="/:eventName" element={<About />} />
-          <Route path="/:eventName/register" element={<SchoolRegistration />} />
-          <Route path="/guide" element={<Disclaimer onClose={() => {}} />} />
+           <Route path="/:eventName"
+            element={
+              <ProtectedRoute>
+                <About />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/:eventName/register"
+            element={
+              <ProtectedRoute>
+                <SchoolRegistration />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/guide" element={<Disclaimer onClose={() => { }} />} />
         </Routes>
       </BrowserRouter>
       <Footer />
