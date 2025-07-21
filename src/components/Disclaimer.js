@@ -29,7 +29,7 @@ const Disclaimer = ({ onClose }) => {
           strict consequences.
         </p>
         <a
-          href="https://example.com/website-guide"
+          href="https://drive.google.com/file/d/1GqIZcg_YC8Wjvd1AE0hEN6j4UMAlVuU-/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="modal-link"
