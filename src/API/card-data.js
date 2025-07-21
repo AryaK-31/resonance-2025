@@ -288,7 +288,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees are requested to carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/17-zGzTgpMEoiFhKHpGpSpou-mKugKdub/view?usp=drive_link",
+      "https://drive.google.com/file/d/1iMFV8UihfVzYjxCk5BCSPj9ce7zPUint/view?usp=sharing",
     image: "./posters/rw.png",
     path: "/rhythm-warriors",
     isOpen: true,

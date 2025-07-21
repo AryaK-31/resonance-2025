@@ -8,6 +8,7 @@ import Data from "../../API/card-data";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { firebaseApp } from "../../context/Firebase";
 import { getAuth } from "firebase/auth";
+import NotFound from "../NotFound";
 
 const SchoolRegistration = () => {
     const { eventName } = useParams();
@@ -21,7 +22,6 @@ const SchoolRegistration = () => {
 
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
-
     const [userName, setUserName] = useState("");
     const [step, setStep] = useState(1); // Track the current form step
     const [formData, setFormData] = useState({
@@ -358,6 +358,16 @@ const SchoolRegistration = () => {
                 return null;
         }
     };
+
+
+    if (!eventData) {
+        return <div>Event not found</div>;
+    }
+
+    if (!eventData.isOpen) {
+        navigate('/not-found')
+    }
+
 
     return (
         <>

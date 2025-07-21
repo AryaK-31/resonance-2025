@@ -12,6 +12,7 @@ import Disclaimer from "./components/Disclaimer";
 
 import { useState, useEffect } from "react";
 import ProtectedRoute from "./components/ProtectedRoute";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -54,6 +55,7 @@ function App() {
             }
           />
           <Route path="/guide" element={<Disclaimer onClose={() => { }} />} />
+          <Route path="/not-found" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <Footer />
