@@ -3,12 +3,10 @@ import "../../styles/schoolRegister.css";
 import Navbar from "../Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { auth } from "../../context/Firebase"; // ✅ fixed import
+import { auth as firebaseAuth, firebaseApp } from "../../context/Firebase";
 import Data from "../../API/card-data";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { firebaseApp } from "../../context/Firebase";
 import { getAuth } from "firebase/auth";
-import NotFound from "../NotFound";
 
 const SchoolRegistration = () => {
     const { eventName } = useParams();
@@ -16,14 +14,11 @@ const SchoolRegistration = () => {
     const location = useLocation();
 
     const auth = getAuth(firebaseApp);
-    const currentUser = auth.currentUser
-
-    console.log(currentUser);
-
+    const currentUser = auth.currentUser;
 
     const eventData = Data.find((item) => item.path === `/${eventName}`);
     const [userName, setUserName] = useState("");
-    const [step, setStep] = useState(1); // Track the current form step
+    const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         school_name: "",
         school_address: "",
@@ -37,56 +32,46 @@ const SchoolRegistration = () => {
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
-    // ✅ Check if user is logged in
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-            if (currentUser) {
-                setUserName(currentUser.displayName || "");
-                // ✅ Prefill teacher_name and teacher_email in formData
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUserName(user.displayName || "");
                 setFormData((prev) => ({
                     ...prev,
-                    teacher_name: currentUser.displayName || "",
-                    teacher_email: currentUser.email || "",
+                    teacher_name: user.displayName || "",
+                    teacher_email: user.email || "",
                 }));
             } else {
-                console.log("User logged out in the middle. Redirecting...");
                 toast.error("Session expired. Please log in again.", {
                     position: "top-center",
                     autoClose: 3000,
                     theme: "colored",
                 });
-                navigate("/"); // Redirect to home or login page
+                navigate("/");
             }
         });
-
-        // Cleanup listener on unmount
         return () => unsubscribe();
     }, [auth, navigate]);
 
-
-    // ✅ Warn user on browser back button / refresh / tab close
     useEffect(() => {
         const handleBeforeUnload = (e) => {
             e.preventDefault();
-            e.returnValue = ""; // Required for Chrome
+            e.returnValue = "";
         };
-
         const handlePopState = () => {
             const confirmLeave = window.confirm(
                 "You are in the middle of a form. Leaving this page will lose all progress. Do you still want to continue?"
             );
             if (!confirmLeave) {
-                // Push user back into the form
                 navigate(location.pathname);
             }
         };
-
         if (location.pathname.includes("/register")) {
-            window.addEventListener("beforeunload", handleBeforeUnload); // Tab close / refresh
-            window.addEventListener("popstate", handlePopState); // Browser back button
+            window.addEventListener("beforeunload", handleBeforeUnload);
+            window.addEventListener("popstate", handlePopState);
         }
-
         return () => {
             window.removeEventListener("beforeunload", handleBeforeUnload);
             window.removeEventListener("popstate", handlePopState);
@@ -105,13 +90,7 @@ const SchoolRegistration = () => {
             if (!formData.principal_contact.trim()) newErrors.principal_contact = "Principal contact is required";
         }
         if (step === 3) {
-            if (!formData.teacher_name.trim()) newErrors.teacher_name = "Teacher name is required";
             if (!formData.teacher_contact.trim()) newErrors.teacher_contact = "Teacher contact is required";
-            if (!formData.teacher_email.trim()) {
-                newErrors.teacher_email = "Teacher email is required";
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.teacher_email)) {
-                newErrors.teacher_email = "Invalid email format";
-            }
         }
         if (step === 4) {
             if (!formData.drive_link.trim()) {
@@ -127,7 +106,7 @@ const SchoolRegistration = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         if (errors[name]) {
-            setErrors({ ...errors, [name]: "" }); // Clear error on change
+            setErrors({ ...errors, [name]: "" });
         }
     };
 
@@ -146,16 +125,18 @@ const SchoolRegistration = () => {
     };
 
     const handleEventSubmit = async (e) => {
+        e.preventDefault();
+
         if (!auth.currentUser) {
             toast.error("You are not logged in. Please log in first.", {
                 position: "top-center",
                 autoClose: 3000,
                 theme: "colored",
             });
-            navigate("/"); // or login page
+            navigate("/");
             return;
         }
-        e.preventDefault();
+
         const validationErrors = validateStep();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -171,7 +152,14 @@ const SchoolRegistration = () => {
         try {
             const submissionData = new FormData();
             submissionData.append("event_name", eventData?.event_name || eventName);
-            Object.entries(formData).forEach(([key, value]) =>
+
+            const actualData = {
+                ...formData,
+                teacher_name: currentUser?.displayName || "",
+                teacher_email: currentUser?.email || "",
+            };
+
+            Object.entries(actualData).forEach(([key, value]) =>
                 submissionData.append(key, value)
             );
 
@@ -189,6 +177,7 @@ const SchoolRegistration = () => {
                     autoClose: 3000,
                     theme: "dark",
                 });
+                setShowModal(true);
                 setFormData({
                     school_name: "",
                     school_address: "",
@@ -224,39 +213,18 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 1: School Details</h3>
                         <div className="form-group">
-                            <label htmlFor="school_name">School Name</label>
-                            <input
-                                type="text"
-                                name="school_name"
-                                value={formData.school_name}
-                                onChange={handleChange}
-                                placeholder="Enter school name"
-                                className={errors.school_name ? "input-error" : ""}
-                            />
+                            <label>School Name</label>
+                            <input type="text" name="school_name" value={formData.school_name} onChange={handleChange} className={errors.school_name ? "input-error" : ""} />
                             {errors.school_name && <small className="error-text">{errors.school_name}</small>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="school_address">School Address</label>
-                            <input
-                                type="text"
-                                name="school_address"
-                                value={formData.school_address}
-                                onChange={handleChange}
-                                placeholder="Enter school address"
-                                className={errors.school_address ? "input-error" : ""}
-                            />
+                            <label>School Address</label>
+                            <input type="text" name="school_address" value={formData.school_address} onChange={handleChange} className={errors.school_address ? "input-error" : ""} />
                             {errors.school_address && <small className="error-text">{errors.school_address}</small>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="school_website">School Website</label>
-                            <input
-                                type="url"
-                                name="school_website"
-                                value={formData.school_website}
-                                onChange={handleChange}
-                                placeholder="Enter school website URL"
-                                className={errors.school_website ? "input-error" : ""}
-                            />
+                            <label>School Website</label>
+                            <input type="url" name="school_website" value={formData.school_website} onChange={handleChange} className={errors.school_website ? "input-error" : ""} />
                             {errors.school_website && <small className="error-text">{errors.school_website}</small>}
                         </div>
                     </>
@@ -266,27 +234,13 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 2: Principal Details</h3>
                         <div className="form-group">
-                            <label htmlFor="principal_name">Principal Name</label>
-                            <input
-                                type="text"
-                                name="principal_name"
-                                value={formData.principal_name}
-                                onChange={handleChange}
-                                placeholder="Enter principal's name"
-                                className={errors.principal_name ? "input-error" : ""}
-                            />
+                            <label>Principal Name</label>
+                            <input type="text" name="principal_name" value={formData.principal_name} onChange={handleChange} className={errors.principal_name ? "input-error" : ""} />
                             {errors.principal_name && <small className="error-text">{errors.principal_name}</small>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="principal_contact">Principal Contact</label>
-                            <input
-                                type="text"
-                                name="principal_contact"
-                                value={formData.principal_contact}
-                                onChange={handleChange}
-                                placeholder="Enter principal's contact"
-                                className={errors.principal_contact ? "input-error" : ""}
-                            />
+                            <label>Principal Contact</label>
+                            <input type="text" name="principal_contact" value={formData.principal_contact} onChange={handleChange} className={errors.principal_contact ? "input-error" : ""} />
                             {errors.principal_contact && <small className="error-text">{errors.principal_contact}</small>}
                         </div>
                     </>
@@ -296,42 +250,17 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 3: Teacher Details</h3>
                         <div className="form-group">
-                            <label htmlFor="teacher_name">Teacher Name (Name cannot be changed)</label>
-                            <input
-                                type="text"
-                                name="teacher_name"
-                                value={currentUser.displayName}
-                                onChange={handleChange}
-                                placeholder="Enter teacher's name"
-                                className={errors.teacher_name ? "input-error" : ""}
-                                readOnly
-                            />
-
+                            <label>Teacher Name (Read-only)</label>
+                            <input type="text" name="teacher_name" value={currentUser?.displayName || ""} readOnly />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="teacher_contact">Teacher Contact</label>
-                            <input
-                                type="text"
-                                name="teacher_contact"
-                                value={formData.teacher_contact}
-                                onChange={handleChange}
-                                placeholder="Enter teacher's contact"
-                                className={errors.teacher_contact ? "input-error" : ""}
-                            />
+                            <label>Teacher Contact</label>
+                            <input type="text" name="teacher_contact" value={formData.teacher_contact} onChange={handleChange} className={errors.teacher_contact ? "input-error" : ""} />
                             {errors.teacher_contact && <small className="error-text">{errors.teacher_contact}</small>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="teacher_email">Teacher Email (Email cannot be changed)</label>
-                            <input
-                                type="email"
-                                name="teacher_email"
-                                value={currentUser.email}
-                                onChange={handleChange}
-                                placeholder="Enter teacher's email"
-                                className={errors.teacher_email ? "input-error" : ""}
-                                readOnly
-                            />
-
+                            <label>Teacher Email (Read-only)</label>
+                            <input type="email" name="teacher_email" value={currentUser?.email || ""} readOnly />
                         </div>
                     </>
                 );
@@ -340,16 +269,9 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 4: Upload Link</h3>
                         <div className="form-group">
-                            <label htmlFor="drive_link">Paste the URL of Drive link which has the doc of students list on school letter head</label>
-                            <h6 className="allowed-classes"> Kindly Note that you have select strictly {eventData?.allowedClasses}</h6>
-                            <input
-                                type="url"
-                                name="drive_link"
-                                value={formData.drive_link}
-                                onChange={handleChange}
-                                placeholder="Paste Google Drive link here"
-                                className={errors.drive_link ? "input-error" : ""}
-                            />
+                            <label>Paste the Drive link with student list</label>
+                            <h6 className="allowed-classes">Select strictly {eventData?.allowedClasses}</h6>
+                            <input type="url" name="drive_link" value={formData.drive_link} onChange={handleChange} className={errors.drive_link ? "input-error" : ""} />
                             {errors.drive_link && <small className="error-text">{errors.drive_link}</small>}
                         </div>
                     </>
@@ -359,15 +281,8 @@ const SchoolRegistration = () => {
         }
     };
 
-
-    if (!eventData) {
-        return <div>Event not found</div>;
-    }
-
-    if (!eventData.isOpen) {
-        navigate('/not-found')
-    }
-
+    if (!eventData) return <div>Event not found</div>;
+    if (!eventData.isOpen) navigate('/not-found');
 
     return (
         <>
@@ -378,18 +293,12 @@ const SchoolRegistration = () => {
                         <h2>School Registration for {eventData?.event_name}</h2>
                         <p>Step {step} of 4</p>
                     </div>
-                    <form className="reg-form" onSubmit={handleEventSubmit} id="form">
+                    <form className="reg-form" onSubmit={handleEventSubmit}>
                         {renderStep()}
                         <div className="button-group">
-                            {step > 1 && (
-                                <button type="button" className="back-btn" onClick={handleBack}>
-                                    Back
-                                </button>
-                            )}
+                            {step > 1 && <button type="button" className="back-btn" onClick={handleBack}>Back</button>}
                             {step < 4 ? (
-                                <button type="button" className="next-btn" onClick={handleNext}>
-                                    Next
-                                </button>
+                                <button type="button" className="next-btn" onClick={handleNext}>Next</button>
                             ) : (
                                 <button type="submit" className="submit-btn" disabled={isSubmitting}>
                                     {isSubmitting ? "Submitting..." : "Submit"}
@@ -400,6 +309,16 @@ const SchoolRegistration = () => {
                     </form>
                 </div>
             </div>
+
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h3>Check Your Email</h3>
+                        <p>Please check for a confirmation email. If not received, contact the event in-charge.</p>
+                        <button onClick={() => setShowModal(false)} className="close-btn">Close</button>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
