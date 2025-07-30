@@ -175,7 +175,7 @@ const cardData = [
       "⦿ Light refreshments will be provided to all participants and teachers accompanying the students. However, all attendees must carry their OWN Lunch and water bottles."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1o2HgJKYONT0MGU-dr7ve-MiK0I1owFJc/view?usp=sharing",
+      "https://drive.google.com/file/d/1bMUDHh_tPCnTW1UIK_AOZe5MdVASOiu7/view?usp=sharing",
     image: "./posters/gks.png",
     path: "/geeta-ka-sar",
     isOpen: true,
