@@ -523,7 +523,7 @@ const cardData = [
     detailed_description:
       " World Quest Quiz is an exciting inter-school general knowledge quiz that challenges students to showcase their awareness about the world around them. From science and current affairs to history, geography, and pop culture, this quiz is designed to spark curiosity, promote teamwork, and encourage learning beyond textbooks.",
     Type: "Team of 3",
-    allowedClasses: '1 participant from Grade 6 to 8(1 from each grade)',
+    allowedClasses: '3 participants, one from each Grade III to V',
     venue: "GGIS Tathawade",
     time: "12.30 PM to 1.30 PM",
     studn1: "Ms. Rajini",
