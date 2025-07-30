@@ -269,7 +269,10 @@ const SchoolRegistration = () => {
                     <>
                         <h3>Step 4: Upload Link</h3>
                         <div className="form-group">
-                            <label>Paste the Drive link with student list</label>
+                            <label>Paste the Drive link with student list {"(SET ACCESS AS VIEW)"}</label>
+                            <label>
+                                NOTE : The list of students should be on the school letter head signed by the Principal
+                            </label>
                             <h6 className="allowed-classes">Select strictly {eventData?.allowedClasses}</h6>
                             <input type="url" name="drive_link" value={formData.drive_link} onChange={handleChange} className={errors.drive_link ? "input-error" : ""} />
                             {errors.drive_link && <small className="error-text">{errors.drive_link}</small>}
@@ -292,6 +295,7 @@ const SchoolRegistration = () => {
                     <div className="form-header">
                         <h2>School Registration for {eventData?.event_name}</h2>
                         <p>Step {step} of 4</p>
+
                     </div>
                     <form className="reg-form" onSubmit={handleEventSubmit}>
                         {renderStep()}

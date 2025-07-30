@@ -166,7 +166,7 @@ const cardData = [
       "⦿ Each student must choose one verse (shloka) from the Bhagavad Geeta.",
       "⦿ The student must recite the verse, explain its literal and contextual meaning, and relate it to present-day life.",
       "⦿ Time limit is strictly 5 minutes per participant. Kindly adhere strictly to the time limit.",
-      "⦿ Maximum 3 students per group.",
+      "⦿ Any 2 participants from 6 to 8.",
       "⦿ Explanation may be in Hindi or English; verse recitation must be in Sanskrit.",
       "⦿ No background music or visual aid is required.",
       "⦿ Students should maintain appropriate decorum and respect the spiritual nature of the event.",
