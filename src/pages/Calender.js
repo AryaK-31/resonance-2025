@@ -18,14 +18,14 @@ const Calender = () => {
     { title: "Poetry Slam", date: "9:30 AM" },
     { title: "Canvas of Creativity", date: "10:00 AM" },
     { title: "Debate", date: "11:00 AM" },
-    { title: "Stage Kaleidoscope", date: "12:30 AM" },
+    { title: "Stage Kaleidoscope", date: "12:30 PM" },
     { title: "Closing and Dispersal", date: "2:30 PM" },
   ];
 
   const timelineDay13 = [
     { title: "Registration of Event", date: "8:30 AM" },
     { title: "Break & Settling time", date: "9:00 AM" },
-    { title: "Geet ka Saar", date: "9:30 AM" },
+    { title: "Geeta Saar", date: "9:30 AM" },
     { title: "Just A Minute(JAM)", date: "10:00 AM" },
     { title: "Festival Collage Making", date: "12:00 PM" },
     { title: "World Quest Quiz", date: "12:30 PM" },
