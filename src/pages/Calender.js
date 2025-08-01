@@ -27,7 +27,7 @@ const Calender = () => {
     { title: "Break & Settling time", date: "9:00 AM" },
     { title: "Geeta Saar", date: "9:30 AM" },
     { title: "Just A Minute(JAM)", date: "10:00 AM" },
-    { title: "Festival Collage Making", date: "12:00 PM" },
+    { title: "Festival Collage Making", date: "12:00 Noon" },
     { title: "World Quest Quiz", date: "12:30 PM" },
     { title: "Closing and Dispersal", date: "1:30 PM" },
   ];
