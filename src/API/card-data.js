@@ -399,7 +399,7 @@ const cardData = [
       "⦿ All teams are expected to strictly adhere to the given timings; failing which, the teams will not be allowed to participate."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1iK5Hj6yKn6GIexZBMJVh8k1Y-mhwhzht/view?usp=drive_link",
+      "https://drive.google.com/file/d/1fv0G4wkOVnqW8vMoAgC3ndZJakkYN9y-/view?usp=sharing",
     image: "./posters/yie.png",
     path: "/young-innovators-expo",
     isOpen: true,
@@ -435,7 +435,7 @@ const cardData = [
       "⦿ Please confirm your registration by filling up the following Google form latest by 30th July, 2025."
     ],
     rulelink:
-      "https://drive.google.com/file/d/1iK5Hj6yKn6GIexZBMJVh8k1Y-mhwhzht/view?usp=drive_link",
+      "https://drive.google.com/file/d/1fv0G4wkOVnqW8vMoAgC3ndZJakkYN9y-/view?usp=sharing",
     image: "./posters/bcwa.png",
     path: "/block-coding-with-ai",
     isOpen: true,
